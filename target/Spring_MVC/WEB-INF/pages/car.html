@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+<!--    <style type="text/css">-->
+<!--        TABLE {-->
+<!--            width: 300px; /* Ширина таблицы */-->
+<!--            border-collapse: collapse; /* Убираем двойные линии между ячейками */-->
+<!--        }-->
+<!--        TD, TH {-->
+<!--            padding: 3px; /* Поля вокруг содержимого таблицы */-->
+<!--            border: 1px solid black; /* Параметры рамки */-->
+<!--        }-->
+<!--        TH {-->
+<!--            background: #b0e0e6; /* Цвет фона */-->
+<!--        }-->
+<!--    </style>-->
+</head>
+<body>
+<div>
+<table border="2">
+    <tbody>
+    <tr  style="font-weight: 600">
+        <td> MODEL </td>
+        <td >SERIES</td>
+        <td >COLOR</td>
+    </tr>
+        <tr th:each="car : ${cars}">
+            <td th:text="${car.getModel()}"></td>
+            <td th:text="${car.getSeries()}"></td>
+            <td th:text="${car.getColor()}"></td>
+        </tr>
+    </tbody>
+</table>
+
+</div>
+</body>
+</html>
