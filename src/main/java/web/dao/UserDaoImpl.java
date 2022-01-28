@@ -45,8 +45,6 @@ public class UserDaoImpl implements UserDao {
     @Override
     public List<User> allUsers() {
 
-//        Session session = sessionFactory.getCurrentSession();
-//        return session.createQuery("from User").list();
 
         List<User> resultList = entityManager.createQuery("SELECT u FROM User u", User.class).getResultList();
         return resultList;
@@ -55,8 +53,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void add(User user) {
-//        user.setId(AUTO_ID.getAndIncrement());
-//        users.put(user.getId(),user);
+
         User managed = entityManager.merge(user);
         entityManager.persist(managed);
     }
@@ -64,19 +61,16 @@ public class UserDaoImpl implements UserDao {
     @Transactional
     @Override
     public void delete(User user) {
-//        users.remove(user.getId());
         User managed = entityManager.merge(user);
         entityManager.remove(managed);
     }
 
     @Override
     public void edit(User user) {
-//        users.put(user.getId(), user);
     }
 
     @Override
     public User getById(int id) {
-//        return users.get(id);
         return entityManager.find(User.class, id);
     }
 }
